@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Redfearn\'s Formula</string>
+    <string name="lat_hint_text">latitude e.g. -33.374364</string>
+    <string name="lon_hint_text">longitude e.g. 150.329052</string>
+    <string name="info">
+		\nv1
+		\n2 Feb 2010
+		\n\nGiven Latitude and Longitude, calculate Geocentric Datum of Australia (GDA).
+		\n\nWarning: This application has not been thoroughly tested and might provide wrong data.
+		\nResults can be verified at http://www.ga.gov.au/geodesy/datums/redfearn_geo_to_grid.jsp
+    	\n\nBased on
+    	\nhttp://nuffcumptin.com/projects/redfearn/redfearnsformulas.php and
+    	\nhttp://pastebin.com/iRb2V8cw
+		\n\nComing: reverse calculation, AGD, location from GPS, better gui 
+		\n\nPlease send comments and suggestions to ales@lichner.name
+    </string>
+</resources>

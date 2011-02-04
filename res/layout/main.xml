@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+	<LinearLayout
+ 		android:id="@+id/lay_1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	>
+    	<EditText android:layout_width="fill_parent" android:hint="@string/lat_hint_text" android:layout_height="wrap_content" android:id="@+id/txtLat" android:singleLine="true"></EditText>
+    	<EditText android:layout_width="fill_parent" android:hint="@string/lon_hint_text" android:layout_height="wrap_content" android:id="@+id/txtLon" android:singleLine="true"></EditText>
+    	<Button android:layout_width="wrap_content" android:text="Calculate" android:id="@+id/btnCalculate" android:layout_height="wrap_content"></Button>
+    	<TextView android:layout_width="fill_parent" android:id="@+id/txtResult" android:layout_height="wrap_content"></TextView>
+    	<TextView android:layout_width="fill_parent" android:id="@+id/textInfo" android:text="@string/info" android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+</ScrollView>

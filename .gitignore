@@ -1,0 +1,8 @@
+.settings/
+assets/
+bin/
+gen/
+.project
+default.properties
+proguard.cfg
+

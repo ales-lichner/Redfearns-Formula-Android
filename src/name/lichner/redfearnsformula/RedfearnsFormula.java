@@ -15,7 +15,6 @@ public class RedfearnsFormula extends Activity {
 
 	private EditText txtLat;
 	private EditText txtLon;
-	private Button btnCalculate;
 	private TextView txtResult;
 	
 //	private String result;
@@ -26,63 +25,22 @@ public class RedfearnsFormula extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         initControls(); 
-        
-        
-//        EditText et1 = new EditText(this);
-//        et1.setHint("latitude e.g. -33.243577");
-//        et1.setHeight();
-//        et1.setMaxLines(1);
-//        setContentView(et1);   
-      
-/*   
-        TextView tv1 = new TextView(this);
-        tv1.setText("Latitude: \nLongitude: ");
-        setContentView(tv1);    
-*/
     }
 
     private void initControls(){
     	txtLat = (EditText)findViewById(R.id.txtLat);
     	txtLon = (EditText)findViewById(R.id.txtLon);
-    	btnCalculate = (Button)findViewById(R.id.btnCalculate);
-    	btnCalculate.setOnClickListener(new Button.OnClickListener() { public void onClick(View v){ calculate(); }});
     	txtResult = (TextView)findViewById(R.id.txtResult);
-
- /*
-        txtLon.setOnEditorActionListener(
-                new OnEditorActionListener(){
-                	@Override
-                	public boolean onEditorAction(EditText v, int actionId, KeyEvent event){
-                		if(event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)){
-                			InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                			in.hideSoftInputFromWindow(searchBar.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-//                			userValidateEntry();
-                		}
-                		return false;
-                	}
-                }
-            );
- */   
-   
 
 		txtLon.setOnKeyListener(new View.OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				if (event.getAction() == KeyEvent.ACTION_DOWN) {
-/*
-					mCurrentChars = mEditText.length();
-					if (mCurrentChars == 0) {
-						mReplyId = 0;
-					}
-*/
+
 					switch (keyCode) {
 					case KeyEvent.KEYCODE_DPAD_CENTER:
-//						sendMessage();
 						return true;
 					case KeyEvent.KEYCODE_ENTER:
-/*
-	        			InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-	        			in.hideSoftInputFromWindow(searchBar.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-*/						
+						
 						calculate();
 
 						InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -100,7 +58,6 @@ public class RedfearnsFormula extends Activity {
 						if (keyCode != KeyEvent.KEYCODE_DEL && mCurrentChars > mLimitChars) {
 							return true;
 						}
-						mCharsLeftText.setText(String.valueOf(mLimitChars - mCurrentChars));
 */
 						break;
 					}
@@ -215,21 +172,10 @@ public class RedfearnsFormula extends Activity {
 		
 		//Derived constants
 		double f = 1.0 / inverse_flattening;
-		double b = a * ( 1 - f );           // Semi minor axis
+
 		double e2 = 2 * f - f * f;          // = f*(2-f) = (a^2-b^2/a^2   //Eccentricity
-		double e = Math.sqrt(e2);
-		double e2_ = e2 / ( 1 - e2 );       // = (a^2-b^2)/b^2            //Second eccentricity
-		double e_ = Math.sqrt(e2_);
 		double e4 = e2 * e2;
 		double e6 = e2 * e4;
-		
-		// Foot point latitude
-		double n = (a - b) / (a + b);       // Same as e2 - why ?
-		double n2 = n * n;
-		double n3 = n * n2;
-		double n4 = n2 * n2;
-		
-		double G = a * ( 1 - n ) * ( 1 - n2 ) * ( 1 + 9 * n2 / 4 + 225 * n4 / 64 ) * Math.PI / 180;
 		
 		double phi = lat * Math.PI / 180;     // Convert latitude to radians
 		
@@ -245,7 +191,6 @@ public class RedfearnsFormula extends Activity {
 		double cosphi5 = cosphi * cosphi4;
 		double cosphi6 = cosphi2 * cosphi4;
 		double cosphi7 = cosphi * cosphi6;
-		double cosphi8 = cosphi4 * cosphi4;
 		
 		double t = Math.tan(phi);
 		double t2 = t * t;
